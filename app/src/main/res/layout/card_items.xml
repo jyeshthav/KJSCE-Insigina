@@ -12,10 +12,19 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_margin="20dp"
         android:layout_marginTop="20dp"
         card_view:cardBackgroundColor="@color/colorAccent"
         card_view:cardCornerRadius="10dp">
+
+        <ImageView
+                android:layout_margin="10dp"
+                android:id="@+id/image_view"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:padding="10dp"
+                android:src="@drawable/logo" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,8 +33,9 @@
         <TextView
             android:id="@+id/info_text"
             android:text="@string/list_text"
-            android:gravity="center"
-            android:textSize="20sp"
+            android:gravity="bottom"
+            android:layout_margin="10dp"
+            android:textSize="30sp"
             android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

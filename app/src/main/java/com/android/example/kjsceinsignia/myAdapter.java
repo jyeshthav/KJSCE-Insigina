@@ -1,6 +1,5 @@
 package com.android.example.kjsceinsignia;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +11,9 @@ import java.util.List;
 
 public class myAdapter extends RecyclerView.Adapter<myAdapter.MyViewHolder> {
     private List<recyclerItems> listItems;
-    private Context mContext;
 
-    public myAdapter(List<recyclerItems> listItems) {this.listItems = listItems;
+    public myAdapter(List<recyclerItems> listItems) {
+        this.listItems = listItems;
     }
 
     // Provide a reference to the views for each data item
@@ -25,11 +24,11 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.MyViewHolder> {
         // each data item is just a string in this case
 //      creates instance of class
         public TextView TextView1;
-//        public ImageView image;
+        //        public ImageView image;
 //        public TextView TextView2;
         public MyViewHolder(View v) {
             super(v);
-            TextView1 = (TextView) v.findViewById(R.id.info_text);
+            TextView1 = (TextView) v.findViewById(R.id.textView1);
 //            image = v.findViewById(R.id.photo);
 //            TextView2 = (TextView) v.findViewById(R.id.textView2);
         }
@@ -41,7 +40,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.MyViewHolder> {
                                                      int viewType) {
         // create a new view
         View v = (TextView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.card_items, parent, false);
+                .inflate(R.layout.recycler_items, parent, false);
 
         MyViewHolder vh = new MyViewHolder(v);
         return vh;

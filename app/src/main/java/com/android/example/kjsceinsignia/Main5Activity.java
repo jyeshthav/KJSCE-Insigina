@@ -10,10 +10,10 @@ import java.util.List;
 
 public class Main5Activity extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private List<recyclerItems> listItems;
+    RecyclerView mRecyclerView;
+    RecyclerView.Adapter mAdapter;
+//    private RecyclerView.LayoutManager mLayoutManager;
+    private List<cardEvents> listItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +26,18 @@ public class Main5Activity extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+//        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         listItems = new ArrayList<>();
         for (int i = 1; i<=5; i++){
-            recyclerItems listItem = new recyclerItems("item " + i);
+            cardEvents listItem = new cardEvents("item " + i);
             listItems.add(listItem);
         }
-        mAdapter.notifyDataSetChanged();
+//        mAdapter.notifyDataSetChanged();
 
         // specify an adapter (see also next example)
-        mAdapter = new myAdapter(listItems);
+        mAdapter = new cardAdapter(this, listItems);
         mRecyclerView.setAdapter(mAdapter);
     }
 }
