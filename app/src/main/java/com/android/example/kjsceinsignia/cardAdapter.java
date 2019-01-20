@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -15,6 +16,11 @@ public class cardAdapter extends RecyclerView.Adapter<cardAdapter.MyViewHolder> 
 
     private Context mCon;
     private List<cardEvents> eventsList;
+    private Integer[] images = { R.drawable.s1, R.drawable.s2, R.drawable.s3,
+            R.drawable.s4, R.drawable.s5, R.drawable.s6, R.drawable.s7,
+            R.drawable.s8, R.drawable.s9, R.drawable.s10, R.drawable.s11,
+            R.drawable.s12, R.drawable.s13, R.drawable.s14, R.drawable.s15
+    };
 
     public cardAdapter(Context mCon, List<cardEvents> eventsList) {
         this.mCon = mCon;
@@ -23,11 +29,11 @@ public class cardAdapter extends RecyclerView.Adapter<cardAdapter.MyViewHolder> 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView text;
-//        public ImageView image;
+        public ImageView image;
         public MyViewHolder(View v) {
             super(v);
             text = v.findViewById(R.id.info_text);
-//            image = v.findViewById(R.id.image_view);
+            image = v.findViewById(R.id.image_view);
         }
     }
 
@@ -46,6 +52,7 @@ public class cardAdapter extends RecyclerView.Adapter<cardAdapter.MyViewHolder> 
         cardEvents event = eventsList.get(position);
         holder.text.setText(event.getName());
 //        holder.image.setImageResource(event.getImage_id());
+        Glide.with(mCon).load(images[event.getImage_id()]).into(holder.image);
     }
 
     @Override

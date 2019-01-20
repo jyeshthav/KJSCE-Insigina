@@ -1,9 +1,11 @@
 package com.android.example.kjsceinsignia;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +33,7 @@ public class Main5Activity extends AppCompatActivity {
 
         listItems = new ArrayList<>();
         for (int i = 1; i<=5; i++){
-            cardEvents listItem = new cardEvents("item " + i);
+            cardEvents listItem = new cardEvents("item " + i, i);
             listItems.add(listItem);
         }
 //        mAdapter.notifyDataSetChanged();
@@ -39,5 +41,9 @@ public class Main5Activity extends AppCompatActivity {
         // specify an adapter (see also next example)
         mAdapter = new cardAdapter(this, listItems);
         mRecyclerView.setAdapter(mAdapter);
+    }
+    public void openGallery(View v){
+        Intent i  = new Intent(this, Main4Activity.class);
+        startActivity(i);
     }
 }

@@ -6,14 +6,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import com.bumptech.glide.Glide;
 
 public class ImageAdapter extends BaseAdapter {
     private Context mContext;
     private Integer[] images = { R.drawable.s1, R.drawable.s2, R.drawable.s3,
-            R.drawable.s4
-//            , R.drawable.s5, R.drawable.s6, R.drawable.s7
-//            R.drawable.s8, R.drawable.s9, R.drawable.s10, R.drawable.s11,
-//            R.drawable.s12, R.drawable.s13, R.drawable.s14, R.drawable.s15
+            R.drawable.s4, R.drawable.s5, R.drawable.s6, R.drawable.s7,
+            R.drawable.s8, R.drawable.s9, R.drawable.s10, R.drawable.s11,
+            R.drawable.s12, R.drawable.s13, R.drawable.s14, R.drawable.s15
     };
 
     public ImageAdapter(Context c) {
@@ -49,7 +49,8 @@ public class ImageAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        imageView.setImageResource(images[position]);
+        Glide.with(mContext).load(images[position]).into(imageView);
+//        imageView.setImageResource(images[position]);
         return imageView;
     }
 

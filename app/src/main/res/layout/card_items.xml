@@ -14,7 +14,8 @@
         android:layout_height="200dp"
         android:layout_marginTop="20dp"
         card_view:cardBackgroundColor="@color/colorAccent"
-        card_view:cardCornerRadius="10dp">
+        card_view:cardCornerRadius="10dp"
+        android:onClick="openGallery">
 
         <ImageView
                 android:layout_margin="10dp"

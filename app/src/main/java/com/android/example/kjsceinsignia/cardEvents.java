@@ -4,16 +4,16 @@ public class cardEvents {
     String name;
     int image_id;
 
-    public cardEvents(String name) {
+    public cardEvents(String name, int image_id) {
         this.name = name;
-//        this.image_id = image_id;
+        this.image_id = image_id;
     }
 
     public String getName() {
         return name;
     }
 
-    /*public int getImage_id() {
+    public int getImage_id() {
         return image_id;
-    }*/
+    }
 }
