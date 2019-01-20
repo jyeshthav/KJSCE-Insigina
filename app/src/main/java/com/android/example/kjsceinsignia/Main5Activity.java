@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Main5Activity extends AppCompatActivity {
     RecyclerView.Adapter mAdapter;
 //    private RecyclerView.LayoutManager mLayoutManager;
     private List<cardEvents> listItems;
+    private int card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +34,8 @@ public class Main5Activity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         listItems = new ArrayList<>();
-        for (int i = 1; i<=5; i++){
-            cardEvents listItem = new cardEvents("item " + i, i);
+        for (int i = 0; i<5; i++){
+            cardEvents listItem = new cardEvents("item " + i, i, i);
             listItems.add(listItem);
         }
 //        mAdapter.notifyDataSetChanged();
@@ -43,7 +45,12 @@ public class Main5Activity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
     }
     public void openGallery(View v){
+        TextView tv = v.findViewById(R.id.info_text);
+        String item = tv.getText().toString();
+        int card_no = Integer.parseInt(item.substring(item.length() - 1));
+        card = this.listItems.get(card_no).getCard();
         Intent i  = new Intent(this, Main4Activity.class);
+        i.putExtra("event", card);
         startActivity(i);
     }
 }

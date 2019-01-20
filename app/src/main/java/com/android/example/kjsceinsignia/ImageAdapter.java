@@ -10,14 +10,36 @@ import com.bumptech.glide.Glide;
 
 public class ImageAdapter extends BaseAdapter {
     private Context mContext;
-    private Integer[] images = { R.drawable.s1, R.drawable.s2, R.drawable.s3,
-            R.drawable.s4, R.drawable.s5, R.drawable.s6, R.drawable.s7,
-            R.drawable.s8, R.drawable.s9, R.drawable.s10, R.drawable.s11,
-            R.drawable.s12, R.drawable.s13, R.drawable.s14, R.drawable.s15
-    };
+    private int card;
+    private Integer[] images;
+    private Integer[] images1 = { R.drawable.s1, R.drawable.s2, R.drawable.s3};
+    private Integer[] images2 = {R.drawable.s4, R.drawable.s5, R.drawable.s6, R.drawable.s7};
+    private Integer[] images3 = {R.drawable.s8, R.drawable.s9, R.drawable.s10, R.drawable.s11};
+    private Integer[] images4 = {R.drawable.s12, R.drawable.s13, R.drawable.s14, R.drawable.s15};
 
-    public ImageAdapter(Context c) {
+    public ImageAdapter(Context c, int card) {
         this.mContext = c;
+        this.card = card;
+        setCard(card);
+    }
+
+    public Integer[] setCard(int card){
+        if (card == 0){
+            images = images1;
+        }
+        else if (card == 1){
+            images = images2;
+        }
+        else if (card == 2){
+            images = images3;
+        }
+        else if (card == 3){
+            images = images4;
+        }
+        else{
+            images = images1;
+        }
+        return images;
     }
 
     public int getCount() {
