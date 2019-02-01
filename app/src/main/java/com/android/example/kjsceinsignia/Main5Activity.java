@@ -3,6 +3,7 @@ package com.android.example.kjsceinsignia;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -33,19 +34,36 @@ public class Main5Activity extends AppCompatActivity {
 //        mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        Intent intent = getIntent();
+        int year = intent.getIntExtra("year", 0);
+        int i = year;
         listItems = new ArrayList<>();
-        for (int i = 0; i<5; i++){
-            cardEvents listItem = new cardEvents("item " + i, i, i);
-            listItems.add(listItem);
-        }
+
+        cardEvents listItem1 = new cardEvents("Freshers " + (16+i), i, i);
+        listItems.add(listItem1);
+
+        cardEvents listItem2 = new cardEvents("Abhiyantriki " + (16+i), i, i);
+        listItems.add(listItem2);
+
+        cardEvents listItem3 = new cardEvents("Skream " + (17+i), i, i);
+        listItems.add(listItem3);
+
+        cardEvents listItem4 = new cardEvents("Symphony " + (17+i), i, i);
+        listItems.add(listItem4);
+
+        cardEvents listItem5 = new cardEvents("Other projects " + (17+i), i, i);
+        listItems.add(listItem5);
+
 //        mAdapter.notifyDataSetChanged();
 
         // specify an adapter (see also next example)
         mAdapter = new cardAdapter(this, listItems);
         mRecyclerView.setAdapter(mAdapter);
+
+
     }
     public void openGallery(View v){
-        TextView tv = v.findViewById(R.id.info_text);
+        TextView tv = v.findViewById(R.id.info_text2);
         String item = tv.getText().toString();
         int card_no = Integer.parseInt(item.substring(item.length() - 1));
         card = this.listItems.get(card_no).getCard();

@@ -30,10 +30,12 @@ public class cardAdapter extends RecyclerView.Adapter<cardAdapter.MyViewHolder> 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView text;
         public ImageView image;
+        public TextView info;
         public MyViewHolder(View v) {
             super(v);
             text = v.findViewById(R.id.info_text);
             image = v.findViewById(R.id.image_view);
+            info = v.findViewById(R.id.info_text2);
         }
     }
 
@@ -51,6 +53,7 @@ public class cardAdapter extends RecyclerView.Adapter<cardAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull cardAdapter.MyViewHolder holder, int position) {
         cardEvents event = eventsList.get(position);
         holder.text.setText(event.getName());
+        holder.info.setText(event.getImage_id());
 //        holder.image.setImageResource(event.getImage_id());
         Glide.with(mCon).load(images[event.getImage_id()]).into(holder.image);
     }

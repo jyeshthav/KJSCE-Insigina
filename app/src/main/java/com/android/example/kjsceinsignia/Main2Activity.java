@@ -57,6 +57,9 @@ public class Main2Activity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 
+//        remove this line to get back the third default tab and make changes to the switch case and getCount funcs
+        tabLayout.removeTabAt(2);
+
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
@@ -140,39 +143,6 @@ public class Main2Activity extends AppCompatActivity {
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
-/*
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-        public BasePagerAdapter(FragmentManager manager) {
-            super(manager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
-        }
-
-//        @Override
-        public CharSequence removeFragment(int position) {
-            mFragmentTitleList.remove(position);
-            mFragmentList.remove(position);
-            notifyDataSetChanged();
-            return mFragmentTitleList.get(position);
-        } */
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -189,9 +159,6 @@ public class Main2Activity extends AppCompatActivity {
                 case 1:
                     galleryTab tab2 = new galleryTab();
                     return tab2;
-                case 2:
-                    thirdTab tab3 = new thirdTab();
-                    return tab3;
                 default:
                     return null;
             }
@@ -201,7 +168,7 @@ public class Main2Activity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 2;
         }
     }
 }

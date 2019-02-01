@@ -5,7 +5,7 @@ public class cardEvents {
     int image_id;
     int card;
 
-    public cardEvents(String name, int image_id, int card) {
+    public cardEvents(String name, int image_id, int card, int index) {
         this.name = name;
         this.image_id = image_id;
         this.card = card;
