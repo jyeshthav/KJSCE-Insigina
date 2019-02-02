@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     }
     // onClick button function
     public void openHome(View v){
-        Intent intent = new Intent(this, Main2Activity.class);
+        Intent intent = new Intent(this, tabbedActivity.class);
         startActivity(intent);
     }
 }

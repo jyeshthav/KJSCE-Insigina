@@ -1,18 +1,17 @@
 package com.android.example.kjsceinsignia;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
-public class Main4Activity extends AppCompatActivity {
+public class imageGridActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main4);
+        setContentView(R.layout.activity_image_grid);
 
         Intent i = getIntent();
         int year = i.getIntExtra("index", 0);
@@ -24,7 +23,7 @@ public class Main4Activity extends AppCompatActivity {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(Main4Activity.this, "" + position,
+                Toast.makeText(imageGridActivity.this, "" + position,
                         Toast.LENGTH_SHORT).show();
             }
         });

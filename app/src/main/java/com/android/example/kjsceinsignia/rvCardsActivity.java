@@ -3,7 +3,6 @@ package com.android.example.kjsceinsignia;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main5Activity extends AppCompatActivity {
+public class rvCardsActivity extends AppCompatActivity {
 
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
@@ -24,7 +23,7 @@ public class Main5Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main5);
+        setContentView(R.layout.activity_rv_cards);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         // use this setting to improve performance if you know that changes
@@ -69,7 +68,7 @@ public class Main5Activity extends AppCompatActivity {
         int t2 = Integer.parseInt(s2);
         index = t1;
         event = t2 - t1;
-        Intent i  = new Intent(this, Main4Activity.class);
+        Intent i  = new Intent(this, imageGridActivity.class);
         i.putExtra("index", index);
         i.putExtra("event", event);
         startActivity(i);

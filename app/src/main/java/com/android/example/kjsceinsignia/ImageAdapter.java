@@ -13,23 +13,23 @@ public class ImageAdapter extends BaseAdapter {
     private int year;
     private int event;
     private Integer[] images;
-    private Integer[] images01 = {R.drawable.s1};
-    private Integer[] images02 = {R.drawable.s4};
-    private Integer[] images03 = {R.drawable.s7};
-    private Integer[] images04 = {R.drawable.s10};
-    private Integer[] images05 = {R.drawable.s13};
+    private Integer[] images01 = {R.drawable.s1};       //freshers 16
+    private Integer[] images02 = {R.drawable.s4};       //abhiyantriki 16
+    private Integer[] images03 = {R.drawable.s7};       //skream 17
+    private Integer[] images04 = {R.drawable.s10};      //symphony 17
+    private Integer[] images05 = {R.drawable.s13};      //others 17
 
-    private Integer[] images11 = {R.drawable.s2};
-    private Integer[] images12 = {R.drawable.s5};
-    private Integer[] images13 = {R.drawable.s8};
-    private Integer[] images14 = {R.drawable.s11};
-    private Integer[] images15 = {R.drawable.s14};
+    private Integer[] images11 = {R.drawable.s2};       //freshers 17
+    private Integer[] images12 = {R.drawable.s5};       //abhiyantriki 17
+    private Integer[] images13 = {R.drawable.s8};       //skream 18
+    private Integer[] images14 = {R.drawable.s11};      //symphony 18
+    private Integer[] images15 = {R.drawable.s14};      //others 18
 
-    private Integer[] images21 = {R.drawable.s3};
-    private Integer[] images22 = {R.drawable.s6};
-    private Integer[] images23 = {R.drawable.s9};
-    private Integer[] images24 = {R.drawable.s12};
-    private Integer[] images25 = {R.drawable.s15};
+    private Integer[] images21 = {R.drawable.s3};       //freshers 18
+    private Integer[] images22 = {R.drawable.s6};       //abhiyantriki 18
+    private Integer[] images23 = {R.drawable.s9};       //skream 19
+    private Integer[] images24 = {R.drawable.s12};      //symphony 19
+    private Integer[] images25 = {R.drawable.s15};      //others 19
 
     public ImageAdapter(Context c, int year, int event) {
         this.mContext = c;

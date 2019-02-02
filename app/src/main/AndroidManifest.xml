@@ -10,7 +10,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".Main2Activity"
+                android:name=".tabbedActivity"
                 android:label="@string/title_activity_main2"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
@@ -21,11 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Main3Activity">
+        <activity android:name=".listRecyclerActivity">
         </activity>
-        <activity android:name=".Main4Activity">
+        <activity android:name=".imageGridActivity">
         </activity>
-        <activity android:name=".Main5Activity">
+        <activity android:name=".rvCardsActivity">
         </activity>
     </application>
 
