@@ -35,7 +35,7 @@ public class ImageAdapter extends BaseAdapter {
         this.mContext = c;
         this.year = year;
         this.event = event;
-        setCard(year, event);
+        this.images = setCard(year, event);
     }
 
     public Integer[] setCard(int year, int event){
@@ -151,7 +151,5 @@ public class ImageAdapter extends BaseAdapter {
 //        imageView.setImageResource(images[position]);
         return imageView;
     }
-
-    // references to our images
 
 }

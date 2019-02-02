@@ -27,6 +27,8 @@
         </activity>
         <activity android:name=".rvCardsActivity">
         </activity>
+        <activity android:name=".fullImageActivity">
+        </activity>
     </application>
 
 </manifest>

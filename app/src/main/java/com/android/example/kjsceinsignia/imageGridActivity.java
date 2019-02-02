@@ -14,8 +14,8 @@ public class imageGridActivity extends AppCompatActivity {
         setContentView(R.layout.activity_image_grid);
 
         Intent i = getIntent();
-        int year = i.getIntExtra("index", 0);
-        int event = i.getIntExtra("event", 0);
+        final int year = i.getIntExtra("index", 0);
+        final int event = i.getIntExtra("event", 0);
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this, year, event));
@@ -23,8 +23,13 @@ public class imageGridActivity extends AppCompatActivity {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(imageGridActivity.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(imageGridActivity.this, "" + position,
+//                        Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(imageGridActivity.this, fullImageActivity.class);
+                intent.putExtra("position", position);
+                intent.putExtra("year", year);
+                intent.putExtra("event", event);
+                startActivity(intent);
             }
         });
     }
