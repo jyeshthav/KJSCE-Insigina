@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
+import com.github.chrisbanes.photoview.PhotoView;
 
 public class fullImageActivity extends AppCompatActivity {
 
@@ -18,8 +19,8 @@ public class fullImageActivity extends AppCompatActivity {
         int event = intent.getIntExtra("event",0);
 
         ImageAdapter imageAdapter = new ImageAdapter(this, year, event);
-        ImageView imageView = (ImageView) findViewById(R.id.imageView2);
-        imageView.setImageResource(imageAdapter.setCard(year,event)[position]);
+        PhotoView photoView = (PhotoView) findViewById(R.id.imageView2);
+        photoView.setImageResource(imageAdapter.setCard(year,event)[position]);
 
     }
 }
