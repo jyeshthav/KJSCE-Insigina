@@ -53,7 +53,7 @@ public class cardAdapter extends RecyclerView.Adapter<cardAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull cardAdapter.MyViewHolder holder, int position) {
         cardEvents event = eventsList.get(position);
         holder.text.setText(event.getName());
-        holder.info.setText(event.getImage_id());
+//        holder.info.setText(event.getImage_id());
 //        holder.image.setImageResource(event.getImage_id());
         Glide.with(mCon).load(images[event.getImage_id()]).into(holder.image);
     }

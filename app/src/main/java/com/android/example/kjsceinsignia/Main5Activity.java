@@ -63,7 +63,7 @@ public class Main5Activity extends AppCompatActivity {
 
     }
     public void openGallery(View v){
-        TextView tv = v.findViewById(R.id.info_text2);
+        TextView tv = v.findViewById(R.id.info_text);
         String item = tv.getText().toString();
         int card_no = Integer.parseInt(item.substring(item.length() - 1));
         card = this.listItems.get(card_no).getCard();
