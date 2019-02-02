@@ -39,24 +39,21 @@ public class Main5Activity extends AppCompatActivity {
         int i = year;
         listItems = new ArrayList<>();
 
-        cardEvents listItem1 = new cardEvents("Freshers " + (16+i), i, i);
+        cardEvents listItem1 = new cardEvents("Freshers " + i, i, i);
         listItems.add(listItem1);
 
-        cardEvents listItem2 = new cardEvents("Abhiyantriki " + (16+i), i, i);
+        cardEvents listItem2 = new cardEvents("Abhiyantriki " + i, i, i);
         listItems.add(listItem2);
 
-        cardEvents listItem3 = new cardEvents("Skream " + (17+i), i, i);
+        cardEvents listItem3 = new cardEvents("Skream " + i, i, i);
         listItems.add(listItem3);
 
-        cardEvents listItem4 = new cardEvents("Symphony " + (17+i), i, i);
+        cardEvents listItem4 = new cardEvents("Symphony " + i, i, i);
         listItems.add(listItem4);
 
-        cardEvents listItem5 = new cardEvents("Other projects " + (17+i), i, i);
+        cardEvents listItem5 = new cardEvents("Other projects " + i, i, i);
         listItems.add(listItem5);
 
-//        mAdapter.notifyDataSetChanged();
-
-        // specify an adapter (see also next example)
         mAdapter = new cardAdapter(this, listItems);
         mRecyclerView.setAdapter(mAdapter);
 
