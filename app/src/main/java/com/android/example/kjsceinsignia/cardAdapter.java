@@ -30,12 +30,15 @@ public class cardAdapter extends RecyclerView.Adapter<cardAdapter.MyViewHolder> 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView text;
         public ImageView image;
-        public TextView info;
+        public TextView year;
+        public TextView event;
+
         public MyViewHolder(View v) {
             super(v);
             text = v.findViewById(R.id.info_text);
             image = v.findViewById(R.id.image_view);
-            info = v.findViewById(R.id.info_text2);
+            year = v.findViewById(R.id.info_text2);
+            event = v.findViewById(R.id.info_text3);
         }
     }
 
@@ -51,11 +54,12 @@ public class cardAdapter extends RecyclerView.Adapter<cardAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull cardAdapter.MyViewHolder holder, int position) {
-        cardEvents event = eventsList.get(position);
-        holder.text.setText(event.getName());
-//        holder.info.setText(event.getImage_id());
+        cardEvents card = eventsList.get(position);
+        holder.text.setText(card.getName());
+        holder.year.setText(Integer.toString(card.getYear()));
+        holder.event.setText(Integer.toString(card.getEvent()));
 //        holder.image.setImageResource(event.getImage_id());
-        Glide.with(mCon).load(images[event.getImage_id()]).into(holder.image);
+        Glide.with(mCon).load(images[card.getImage_id()]).into(holder.image);
     }
 
     @Override

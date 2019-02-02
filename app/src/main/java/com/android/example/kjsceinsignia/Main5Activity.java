@@ -18,7 +18,8 @@ public class Main5Activity extends AppCompatActivity {
     RecyclerView.Adapter mAdapter;
 //    private RecyclerView.LayoutManager mLayoutManager;
     private List<cardEvents> listItems;
-    private int card;
+    private int index;
+    private int event;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,19 +40,19 @@ public class Main5Activity extends AppCompatActivity {
         int i = year;
         listItems = new ArrayList<>();
 
-        cardEvents listItem1 = new cardEvents("Freshers " + i, i, i);
+        cardEvents listItem1 = new cardEvents("Freshers " + (16+i), i, i, i);
         listItems.add(listItem1);
 
-        cardEvents listItem2 = new cardEvents("Abhiyantriki " + i, i, i);
+        cardEvents listItem2 = new cardEvents("Abhiyantriki " + (16+i), (i+1), i, (i+1));
         listItems.add(listItem2);
 
-        cardEvents listItem3 = new cardEvents("Skream " + i, i, i);
+        cardEvents listItem3 = new cardEvents("Skream " + (17+i), (i+2), i, (i+2));
         listItems.add(listItem3);
 
-        cardEvents listItem4 = new cardEvents("Symphony " + i, i, i);
+        cardEvents listItem4 = new cardEvents("Symphony " + (17+i), (i+3), i, (i+3));
         listItems.add(listItem4);
 
-        cardEvents listItem5 = new cardEvents("Other projects " + i, i, i);
+        cardEvents listItem5 = new cardEvents("Other projects " + (17+i), (i+4), i, (i+4));
         listItems.add(listItem5);
 
         mAdapter = new cardAdapter(this, listItems);
@@ -60,12 +61,17 @@ public class Main5Activity extends AppCompatActivity {
 
     }
     public void openGallery(View v){
-        TextView tv = v.findViewById(R.id.info_text);
-        String item = tv.getText().toString();
-        int card_no = Integer.parseInt(item.substring(item.length() - 1));
-        card = this.listItems.get(card_no).getCard();
+        TextView tv1 = v.findViewById(R.id.info_text2);
+        TextView tv2 = v.findViewById(R.id.info_text3);
+        String s1 = tv1.getText().toString();
+        String s2 = tv2.getText().toString();
+        int t1 = Integer.parseInt(s1);
+        int t2 = Integer.parseInt(s2);
+        index = t1;
+        event = t2 - t1;
         Intent i  = new Intent(this, Main4Activity.class);
-        i.putExtra("event", card);
+        i.putExtra("index", index);
+        i.putExtra("event", event);
         startActivity(i);
     }
 }

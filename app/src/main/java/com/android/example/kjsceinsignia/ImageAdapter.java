@@ -10,34 +10,109 @@ import com.bumptech.glide.Glide;
 
 public class ImageAdapter extends BaseAdapter {
     private Context mContext;
-    private int card;
+    private int year;
+    private int event;
     private Integer[] images;
-    private Integer[] images1 = { R.drawable.s1, R.drawable.s2, R.drawable.s3};
-    private Integer[] images2 = {R.drawable.s4, R.drawable.s5, R.drawable.s6, R.drawable.s7};
-    private Integer[] images3 = {R.drawable.s8, R.drawable.s9, R.drawable.s10, R.drawable.s11};
-    private Integer[] images4 = {R.drawable.s12, R.drawable.s13, R.drawable.s14, R.drawable.s15};
+    private Integer[] images01 = {R.drawable.s1};
+    private Integer[] images02 = {R.drawable.s4};
+    private Integer[] images03 = {R.drawable.s7};
+    private Integer[] images04 = {R.drawable.s10};
+    private Integer[] images05 = {R.drawable.s13};
 
-    public ImageAdapter(Context c, int card) {
+    private Integer[] images11 = {R.drawable.s2};
+    private Integer[] images12 = {R.drawable.s5};
+    private Integer[] images13 = {R.drawable.s8};
+    private Integer[] images14 = {R.drawable.s11};
+    private Integer[] images15 = {R.drawable.s14};
+
+    private Integer[] images21 = {R.drawable.s3};
+    private Integer[] images22 = {R.drawable.s6};
+    private Integer[] images23 = {R.drawable.s9};
+    private Integer[] images24 = {R.drawable.s12};
+    private Integer[] images25 = {R.drawable.s15};
+
+    public ImageAdapter(Context c, int year, int event) {
         this.mContext = c;
-        this.card = card;
-        setCard(card);
+        this.year = year;
+        this.event = event;
+        setCard(year, event);
     }
 
-    public Integer[] setCard(int card){
-        if (card == 0){
-            images = images1;
-        }
-        else if (card == 1){
-            images = images2;
-        }
-        else if (card == 2){
-            images = images3;
-        }
-        else if (card == 3){
-            images = images4;
-        }
-        else{
-            images = images1;
+    public Integer[] setCard(int year, int event){
+        switch (event){
+            case 0:
+                if (year == 0){
+                    images = images01;
+                }
+                else if(year == 1){
+                    images = images11;
+                }
+                else if(year == 2){
+                    images = images21;
+                }
+                else {
+                    images = images01;
+                }
+                break;
+            case 1:
+                if (year == 0){
+                    images = images02;
+                }
+                else if(year == 1){
+                    images = images12;
+                }
+                else if(year == 2){
+                    images = images22;
+                }
+                else {
+                    images = images02;
+                }
+                break;
+            case 2:
+                if (year == 0){
+                    images = images03;
+                }
+                else if(year == 1){
+                    images = images13;
+                }
+                else if(year == 2){
+                    images = images23;
+                }
+                else {
+                    images = images03;
+                }
+                break;
+            case 3:
+                if (year == 0){
+                    images = images04;
+                }
+                else if(year == 1){
+                    images = images14;
+                }
+                else if(year == 2){
+                    images = images24;
+                }
+                else {
+                    images = images04;
+                }
+                break;
+            case 4:
+                if (year == 0){
+                    images = images05;
+                }
+                else if(year == 1){
+                    images = images15;
+                }
+                else if(year == 2){
+                    images = images25;
+                }
+                else {
+                    images = images05;
+                }
+                break;
+            default:
+                images = images01;
+                break;
         }
         return images;
     }

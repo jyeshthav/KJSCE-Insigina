@@ -3,12 +3,14 @@ package com.android.example.kjsceinsignia;
 public class cardEvents {
     String name;
     int image_id;
-    int card;
+    int year;
+    int event;
 
-    public cardEvents(String name, int image_id, int card) {
+    public cardEvents(String name, int image_id, int year, int event) {
         this.name = name;
         this.image_id = image_id;
-        this.card = card;
+        this.year = year;
+        this.event = event;
     }
 
     public String getName() {
@@ -19,7 +21,11 @@ public class cardEvents {
         return image_id;
     }
 
-    public int getCard() {
-        return card;
+    public int getYear() {
+        return year;
+    }
+
+    public int getEvent() {
+        return event;
     }
 }

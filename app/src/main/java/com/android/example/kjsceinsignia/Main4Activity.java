@@ -15,10 +15,11 @@ public class Main4Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main4);
 
         Intent i = getIntent();
-        int card = i.getIntExtra("event", 0);
+        int year = i.getIntExtra("index", 0);
+        int event = i.getIntExtra("event", 0);
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter(this, card));
+        gridview.setAdapter(new ImageAdapter(this, year, event));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
