@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-    <Button
-            android:text="@string/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button2" android:layout_weight="10"/>
-    <TextView
-            android:text="@string/overview_text_1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" android:id="@+id/textView2" android:layout_weight="10"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
-</LinearLayout>
+    <ScrollView android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollView">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:paddingBottom="70dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2"
+                    android:textSize="30sp"
+                    android:text="@string/overview"
+            android:scrollbars="vertical"
+            />
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView3"
+                    android:textSize="20sp"
+                    android:text="@string/overview"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView4"
+                    android:textSize="12sp"
+                    android:text="@string/overview"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

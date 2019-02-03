@@ -15,8 +15,10 @@ public class galleryTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.tab_gallery,container, false);
+
         GridView gridView = (GridView) view.findViewById(R.id.yeargridview);
         gridView.setAdapter(new yearAdapter(view.getContext()));
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
