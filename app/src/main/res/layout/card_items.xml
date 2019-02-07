@@ -11,7 +11,7 @@
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="210dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
@@ -24,15 +24,16 @@
                 android:id="@+id/image_view"
                 android:layout_marginLeft="5dp"
                 android:layout_marginStart="5dp"
-                android:layout_width="300dp"
-                android:layout_height="150dp"
+                android:layout_width="match_parent"
+                android:layout_height="155dp"
+                android:scaleType="fitXY"
                 android:padding="10dp"
                 android:src="@drawable/logo"
                 android:contentDescription="@string/app_name"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/info_text"

@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.Toast;
 import com.github.chrisbanes.photoview.PhotoView;
 
 public class fullImageActivity extends AppCompatActivity {
@@ -22,5 +24,13 @@ public class fullImageActivity extends AppCompatActivity {
         PhotoView photoView = (PhotoView) findViewById(R.id.imageView2);
         photoView.setImageResource(imageAdapter.setCard(year,event)[position]);
 
+        RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(fullImageActivity.this, "" + ratingBar.getRating(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

@@ -29,6 +29,8 @@
         </activity>
         <activity android:name=".fullImageActivity">
         </activity>
+        <activity android:name=".exploreActivity">
+        </activity>
     </application>
 
 </manifest>

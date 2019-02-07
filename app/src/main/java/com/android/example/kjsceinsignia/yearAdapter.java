@@ -35,21 +35,6 @@ public class yearAdapter extends BaseAdapter {
     // create a new ImageView for each item referenced by the Adapter
 //    convertView is the existing view for the image IF ANY
     public View getView(int position, View convertView, ViewGroup parent) {
-//        ImageView imageView;
-//        if (convertView == null) {
-//            // if it's not recycled, initialize some attributes
-//            imageView = new ImageView(mContext);
-//            imageView.setLayoutParams(new ViewGroup.LayoutParams(-1, 370));
-////            imageView.setLayoutParams(new ViewGroup.LayoutParams(85, 85));
-//            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//            imageView.setPadding(8, 8, 8, 8);
-//            ;
-//        } else {
-//            imageView = (ImageView) convertView;
-//        }
-//
-//        Glide.with(mContext).load(images[position]).into(imageView);
-
         View gridView;
         LayoutInflater inflater = (LayoutInflater) mContext
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);

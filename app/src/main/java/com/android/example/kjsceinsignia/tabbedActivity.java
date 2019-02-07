@@ -1,5 +1,6 @@
 package com.android.example.kjsceinsignia;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -88,11 +89,9 @@ public class tabbedActivity extends AppCompatActivity {
         if (id == R.id.action_ContactUs) {
             return true;
         }
-        if (id == R.id.action_Calendar) {
-            return true;
-        }
         if (id == R.id.action_events) {
-            return true;
+            Intent i = new Intent(this, exploreActivity.class);
+            startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);
