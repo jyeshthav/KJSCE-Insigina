@@ -87,7 +87,8 @@ public class tabbedActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_ContactUs) {
-            return true;
+            Intent i = new Intent(this, contactActivity.class);
+            startActivity(i);
         }
         if (id == R.id.action_events) {
             Intent i = new Intent(this, exploreActivity.class);

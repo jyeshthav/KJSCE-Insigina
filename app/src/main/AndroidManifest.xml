@@ -31,6 +31,8 @@
         </activity>
         <activity android:name=".exploreActivity">
         </activity>
+        <activity android:name=".contactActivity">
+        </activity>
     </application>
 
 </manifest>

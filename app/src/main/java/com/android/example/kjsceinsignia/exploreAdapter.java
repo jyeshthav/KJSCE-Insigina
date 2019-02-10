@@ -35,10 +35,9 @@ public class exploreAdapter extends BaseAdapter {
         ImageView imageView;
         if (convertView == null) {
             imageView = new ImageView(context);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(-1, 370));
+            imageView.setLayoutParams(new ViewGroup.LayoutParams(-1, 820));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
-            ;
         } else {
             imageView = (ImageView) convertView;
         }

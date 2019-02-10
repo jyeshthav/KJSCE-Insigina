@@ -21,12 +21,12 @@
                   android:textSize="20sp"/>
 
         <RatingBar
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ratingBar"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="0dp"
-        />
+                android:background="@color/white"/>
 
         <com.github.chrisbanes.photoview.PhotoView
                 android:id="@+id/imageView2"

@@ -43,14 +43,13 @@ public class yearAdapter extends BaseAdapter {
 
             gridView = new View(mContext);
             gridView = inflater.inflate(R.layout.year_grid, null);
-            TextView textViewAndroid = (TextView) gridView.findViewById(R.id.gridview_text);
-            ImageView imageViewAndroid = (ImageView) gridView.findViewById(R.id.gridview_image);
-            textViewAndroid.setText(gridViewString[position]);
-            Glide.with(imageViewAndroid.getContext()).load(images[position]).into(imageViewAndroid);
+            TextView textView = (TextView) gridView.findViewById(R.id.gridview_text);
+            ImageView imageView = (ImageView) gridView.findViewById(R.id.gridview_image);
+            textView.setText(gridViewString[position]);
+            Glide.with(imageView.getContext()).load(images[position]).into(imageView);
         } else {
             gridView = (View) convertView;
         }
-//        imageView.setImageResource(images[position]);
         return gridView;
     }
 
