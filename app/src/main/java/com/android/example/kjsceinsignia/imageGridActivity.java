@@ -29,6 +29,7 @@ public class imageGridActivity extends AppCompatActivity {
                 intent.putExtra("position", position);
                 intent.putExtra("year", year);
                 intent.putExtra("event", event);
+                intent.putExtra("check", 1);
                 startActivity(intent);
             }
         });

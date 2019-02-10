@@ -13,23 +13,26 @@ public class ImageAdapter extends BaseAdapter {
     private int year;
     private int event;
     private Integer[] images;
-    private Integer[] images01 = {R.drawable.s1};       //freshers 16
-    private Integer[] images02 = {R.drawable.s4};       //abhiyantriki 16
-    private Integer[] images03 = {R.drawable.s7};       //skream 17
-    private Integer[] images04 = {R.drawable.s10};      //symphony 17
-    private Integer[] images05 = {R.drawable.s13};      //others 17
+    private Integer[] images00 = {R.drawable.s1};       //freshers 16
+    private Integer[] images01 = {R.drawable.s4};       //abhiyantriki 16
+    private Integer[] images02 = {R.drawable.s7};       //skream 17
+    private Integer[] images03 = {R.drawable.s10};      //symphony 17
+    private Integer[] images04 = {R.drawable.s13};      //others 17
 
-    private Integer[] images11 = {R.drawable.s2};       //freshers 17
-    private Integer[] images12 = {R.drawable.s5};       //abhiyantriki 17
-    private Integer[] images13 = {R.drawable.s8};       //skream 18
-    private Integer[] images14 = {R.drawable.s11};      //symphony 18
-    private Integer[] images15 = {R.drawable.s14};      //others 18
+    private Integer[] images10 = {R.drawable.s2};       //freshers 17
+    private Integer[] images11 = {R.drawable.s5};       //abhiyantriki 17
+    private Integer[] images12 = {R.drawable.s8};       //skream 18
+    private Integer[] images13 = {R.drawable.s11};      //symphony 18
+    private Integer[] images14 = {R.drawable.s14};      //others 18
 
-    private Integer[] images21 = {R.drawable.s3};       //freshers 18
-    private Integer[] images22 = {R.drawable.s6};       //abhiyantriki 18
-    private Integer[] images23 = {R.drawable.s9};       //skream 19
-    private Integer[] images24 = {R.drawable.s12};      //symphony 19
-    private Integer[] images25 = {R.drawable.s15};      //others 19
+    private Integer[] images20 = {R.drawable.s3};       //freshers 18
+    private Integer[] images21 = {R.drawable.s6};       //abhiyantriki 18
+    private Integer[] images22 = {R.drawable.s9};       //skream 19
+    private Integer[] images23 = {R.drawable.s12};      //symphony 19
+    private Integer[] images24 = {R.drawable.s15};      //others 19
+
+    public Integer[] explore_images = {R.drawable.s1, R.drawable.s2, R.drawable.s3,
+            R.drawable.s4, R.drawable.s5, R.drawable.s6 };
 
     public ImageAdapter(Context c, int year, int event) {
         this.mContext = c;
@@ -38,9 +41,27 @@ public class ImageAdapter extends BaseAdapter {
         this.images = setCard(year, event);
     }
 
+    public ImageAdapter(Context c) {
+        this.mContext = c;
+    }
+
     public Integer[] setCard(int year, int event){
         switch (event){
             case 0:
+                if (year == 0){
+                    images = images00;
+                }
+                else if(year == 1){
+                    images = images10;
+                }
+                else if(year == 2){
+                    images = images20;
+                }
+                else {
+                    images = images00;
+                }
+                break;
+            case 1:
                 if (year == 0){
                     images = images01;
                 }
@@ -54,7 +75,7 @@ public class ImageAdapter extends BaseAdapter {
                     images = images01;
                 }
                 break;
-            case 1:
+            case 2:
                 if (year == 0){
                     images = images02;
                 }
@@ -68,7 +89,7 @@ public class ImageAdapter extends BaseAdapter {
                     images = images02;
                 }
                 break;
-            case 2:
+            case 3:
                 if (year == 0){
                     images = images03;
                 }
@@ -82,7 +103,7 @@ public class ImageAdapter extends BaseAdapter {
                     images = images03;
                 }
                 break;
-            case 3:
+            case 4:
                 if (year == 0){
                     images = images04;
                 }
@@ -96,22 +117,8 @@ public class ImageAdapter extends BaseAdapter {
                     images = images04;
                 }
                 break;
-            case 4:
-                if (year == 0){
-                    images = images05;
-                }
-                else if(year == 1){
-                    images = images15;
-                }
-                else if(year == 2){
-                    images = images25;
-                }
-                else {
-                    images = images05;
-                }
-                break;
             default:
-                images = images01;
+                images = images00;
                 break;
         }
         return images;
