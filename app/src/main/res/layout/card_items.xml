@@ -12,10 +12,11 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="210dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        card_view:cardBackgroundColor="@color/colorAccent"
+        android:layout_marginBottom="5dp"
+        card_view:cardBackgroundColor="@color/cardBack"
         card_view:cardCornerRadius="10dp"
         android:onClick="openGallery">
 
@@ -41,7 +42,7 @@
             android:gravity="bottom"
             android:layout_margin="10dp"
             android:textSize="30sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <TextView
