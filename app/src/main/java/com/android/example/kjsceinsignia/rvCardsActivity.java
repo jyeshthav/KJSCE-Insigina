@@ -37,21 +37,36 @@ public class rvCardsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int year = intent.getIntExtra("year", 0);
         int i = year;
+        int j;
+        switch(i){
+            case 0:
+                j = 0;
+                break;
+            case 1:
+                j = 5;
+                break;
+            case 2:
+                j = 10;
+                break;
+            default:
+                j = 0;
+                break;
+        }
         listItems = new ArrayList<>();
 
-        cardEvents listItem1 = new cardEvents("Freshers " + (16+i), i, i, i);
+        cardEvents listItem1 = new cardEvents("Freshers " + (16+i), j, i, i);
         listItems.add(listItem1);
 
-        cardEvents listItem2 = new cardEvents("Abhiyantriki " + (16+i), (i+1), i, (i+1));
+        cardEvents listItem2 = new cardEvents("Abhiyantriki " + (16+i), (j+1), i, (i+1));
         listItems.add(listItem2);
 
-        cardEvents listItem3 = new cardEvents("Skream " + (17+i), (i+2), i, (i+2));
+        cardEvents listItem3 = new cardEvents("Skream " + (17+i), (j+2), i, (i+2));
         listItems.add(listItem3);
 
-        cardEvents listItem4 = new cardEvents("Symphony " + (17+i), (i+3), i, (i+3));
+        cardEvents listItem4 = new cardEvents("Symphony " + (17+i), (j+3), i, (i+3));
         listItems.add(listItem4);
 
-        cardEvents listItem5 = new cardEvents("Other projects " + (17+i), (i+4), i, (i+4));
+        cardEvents listItem5 = new cardEvents("Other projects " + (17+i), (j+4), i, (i+4));
         listItems.add(listItem5);
 
         mAdapter = new cardAdapter(this, listItems);
