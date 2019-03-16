@@ -19,66 +19,94 @@ import java.util.List;
 
 public class imageGridActivity extends AppCompatActivity {
 
-    FirebaseStorage storage = FirebaseStorage.getInstance();
-    StorageReference storageRef = storage.getReference();
-    StorageReference imagesRef = storageRef.child("16-17");
+//    FirebaseStorage storage = FirebaseStorage.getInstance();
+//    StorageReference storageRef = storage.getReference();
+//    StorageReference imagesRef = storageRef.child("16-17");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_grid);
-        FirebaseApp.initializeApp(this);
+//        FirebaseApp.initializeApp(this);
 
-//        Intent i = getIntent();
-//        final int year = i.getIntExtra("index", 0);
-//        final int event = i.getIntExtra("event", 0);
+        Intent i = getIntent();
+        final int year = i.getIntExtra("index", 0);
+        final int event = i.getIntExtra("event", 0);
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
 
         final List<String> uriList;
         uriList = new ArrayList<String>();
+        final String path,eventPath;
+        String temp;
 
-        imagesRef.child("s1.png").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                uriList.add(uri.toString());
-                Toast.makeText(getBaseContext(), uriList.get(0), Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle any errors
-                Toast.makeText(getBaseContext(), exception.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        imagesRef.child("s2.png").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                uriList.add(uri.toString());
-                Toast.makeText(getBaseContext(), "2", Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle any errors
-                Toast.makeText(getBaseContext(), exception.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        switch(year){
+            case 0:
+                path = "16-17/";
+                break;
+            case 1:
+                path = "17-18/";
+                break;
+            case 2:
+                path = "18-19/";
+                break;
+            default:
+                path = "Logo/";
+                break;
+        }
+
+        switch(event){
+            case 0:
+                temp = (16+year) + "fre";
+                eventPath = path.concat(temp);
+                break;
+            case 1:
+                temp = (16+year) + "abhi";
+                eventPath = path.concat(temp);
+                break;
+            case 2:
+                temp = (17+year) + "skr";
+                eventPath = path.concat(temp);
+                break;
+            case 3:
+                temp = (17+year) + "sym";
+                eventPath = path.concat(temp);
+                break;
+            case 4:
+                temp = (17+year) + "ot";
+                eventPath = path.concat(temp);
+                break;
+            default:
+                eventPath = path.concat("logo1.jpg");
+                break;
+        }
+
+        if(year == 0 || year == 1 || year == 2){
+            String path1, path2;
+            path1 = eventPath.concat("1.jpg");
+            path2 = eventPath.concat("2.jpg");
+            uriList.add(path1);
+            uriList.add(path2);
+        }
+        else{
+            uriList.add(path);
+        }
 
         gridview.setAdapter(new fbAdapter(imageGridActivity.this, uriList));
 //        gridview.setAdapter(new ImageAdapter(imageGridActivity.this, year, event));
-//        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            public void onItemClick(AdapterView<?> parent, View v,
-//                                    int position, long id) {
-////                Toast.makeText(imageGridActivity.this, "" + position,
-////                        Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(imageGridActivity.this, fullImageActivity.class);
-//                intent.putExtra("position", position);
-//                intent.putExtra("year", year);
-//                intent.putExtra("event", event);
-//                intent.putExtra("check", 1);
-//                startActivity(intent);
-//            }
-//        });
+        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+//                Toast.makeText(imageGridActivity.this, "" + position,
+//                        Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(imageGridActivity.this, fullImageActivity.class);
+                intent.putExtra("position", position);
+                intent.putExtra("year", year);
+                intent.putExtra("event", event);
+                intent.putExtra("check", 1);
+                intent.putExtra("path", eventPath);
+                startActivity(intent);
+            }
+        });
     }
 }

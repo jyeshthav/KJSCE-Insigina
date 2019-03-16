@@ -16,10 +16,10 @@ public class cardAdapter extends RecyclerView.Adapter<cardAdapter.MyViewHolder> 
 
     private Context mCon;
     private List<cardEvents> eventsList;
-    private Integer[] images = { R.drawable.s1, R.drawable.s2, R.drawable.s3,
-            R.drawable.s4, R.drawable.s5, R.drawable.s6, R.drawable.s7,
-            R.drawable.s8, R.drawable.s9, R.drawable.s10, R.drawable.s11,
-            R.drawable.s12, R.drawable.s13, R.drawable.s14, R.drawable.s15
+    private Integer[] images = { R.drawable.fre1, R.drawable.abhi1, R.drawable.skr1,
+            R.drawable.sym1, R.drawable.ot1, R.drawable.fre2, R.drawable.abhi2,
+            R.drawable.skr2, R.drawable.sym2, R.drawable.ot2, R.drawable.fre3,
+            R.drawable.abhi3, R.drawable.skr3, R.drawable.sym3, R.drawable.ot3
     };
 
     public cardAdapter(Context mCon, List<cardEvents> eventsList) {
@@ -58,7 +58,6 @@ public class cardAdapter extends RecyclerView.Adapter<cardAdapter.MyViewHolder> 
         holder.text.setText(card.getName());
         holder.year.setText(Integer.toString(card.getYear()));
         holder.event.setText(Integer.toString(card.getEvent()));
-//        holder.image.setImageResource(event.getImage_id());
         Glide.with(mCon).load(images[card.getImage_id()]).into(holder.image);
     }
 

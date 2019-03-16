@@ -13,116 +13,116 @@ public class ImageAdapter extends BaseAdapter {
     private int year;
     private int event;
     private Integer[] images;
-    private Integer[] images00 = {R.drawable.s1};       //freshers 16
-    private Integer[] images01 = {R.drawable.s4};       //abhiyantriki 16
-    private Integer[] images02 = {R.drawable.s7};       //skream 17
-    private Integer[] images03 = {R.drawable.s10};      //symphony 17
-    private Integer[] images04 = {R.drawable.s13};      //others 17
+//    private Integer[] images00 = {R.drawable.s1};       //freshers 16
+//    private Integer[] images01 = {R.drawable.s4};       //abhiyantriki 16
+//    private Integer[] images02 = {R.drawable.s7};       //skream 17
+//    private Integer[] images03 = {R.drawable.s10};      //symphony 17
+//    private Integer[] images04 = {R.drawable.s13};      //others 17
+//
+//    private Integer[] images10 = {R.drawable.s2};       //freshers 17
+//    private Integer[] images11 = {R.drawable.s5};       //abhiyantriki 17
+//    private Integer[] images12 = {R.drawable.s8};       //skream 18
+//    private Integer[] images13 = {R.drawable.s11};      //symphony 18
+//    private Integer[] images14 = {R.drawable.s14};      //others 18
+//
+//    private Integer[] images20 = {R.drawable.s3};       //freshers 18
+//    private Integer[] images21 = {R.drawable.s6};       //abhiyantriki 18
+//    private Integer[] images22 = {R.drawable.s9};       //skream 19
+//    private Integer[] images23 = {R.drawable.s12};      //symphony 19
+//    private Integer[] images24 = {R.drawable.s15};      //others 19
 
-    private Integer[] images10 = {R.drawable.s2};       //freshers 17
-    private Integer[] images11 = {R.drawable.s5};       //abhiyantriki 17
-    private Integer[] images12 = {R.drawable.s8};       //skream 18
-    private Integer[] images13 = {R.drawable.s11};      //symphony 18
-    private Integer[] images14 = {R.drawable.s14};      //others 18
+    public Integer[] explore_images = {R.drawable.fre1, R.drawable.abhi1, R.drawable.skr1,
+            R.drawable.sym1, R.drawable.ot1 };
 
-    private Integer[] images20 = {R.drawable.s3};       //freshers 18
-    private Integer[] images21 = {R.drawable.s6};       //abhiyantriki 18
-    private Integer[] images22 = {R.drawable.s9};       //skream 19
-    private Integer[] images23 = {R.drawable.s12};      //symphony 19
-    private Integer[] images24 = {R.drawable.s15};      //others 19
-
-    public Integer[] explore_images = {R.drawable.s1, R.drawable.s2, R.drawable.s3,
-            R.drawable.s4, R.drawable.s5, R.drawable.s6 };
-
-    public ImageAdapter(Context c, int year, int event) {
-        this.mContext = c;
-        this.year = year;
-        this.event = event;
-        this.images = setCard(year, event);
-    }
+//    public ImageAdapter(Context c, int year, int event) {
+//        this.mContext = c;
+//        this.year = year;
+//        this.event = event;
+//        this.images = setCard(year, event);
+//    }
 
     public ImageAdapter(Context c) {
         this.mContext = c;
     }
 
-    public Integer[] setCard(int year, int event){
-        switch (event){
-            case 0:
-                if (year == 0){
-                    images = images00;
-                }
-                else if(year == 1){
-                    images = images10;
-                }
-                else if(year == 2){
-                    images = images20;
-                }
-                else {
-                    images = images00;
-                }
-                break;
-            case 1:
-                if (year == 0){
-                    images = images01;
-                }
-                else if(year == 1){
-                    images = images11;
-                }
-                else if(year == 2){
-                    images = images21;
-                }
-                else {
-                    images = images01;
-                }
-                break;
-            case 2:
-                if (year == 0){
-                    images = images02;
-                }
-                else if(year == 1){
-                    images = images12;
-                }
-                else if(year == 2){
-                    images = images22;
-                }
-                else {
-                    images = images02;
-                }
-                break;
-            case 3:
-                if (year == 0){
-                    images = images03;
-                }
-                else if(year == 1){
-                    images = images13;
-                }
-                else if(year == 2){
-                    images = images23;
-                }
-                else {
-                    images = images03;
-                }
-                break;
-            case 4:
-                if (year == 0){
-                    images = images04;
-                }
-                else if(year == 1){
-                    images = images14;
-                }
-                else if(year == 2){
-                    images = images24;
-                }
-                else {
-                    images = images04;
-                }
-                break;
-            default:
-                images = images00;
-                break;
-        }
-        return images;
-    }
+//    public Integer[] setCard(int year, int event){
+//        switch (event){
+//            case 0:
+//                if (year == 0){
+//                    images = images00;
+//                }
+//                else if(year == 1){
+//                    images = images10;
+//                }
+//                else if(year == 2){
+//                    images = images20;
+//                }
+//                else {
+//                    images = images00;
+//                }
+//                break;
+//            case 1:
+//                if (year == 0){
+//                    images = images01;
+//                }
+//                else if(year == 1){
+//                    images = images11;
+//                }
+//                else if(year == 2){
+//                    images = images21;
+//                }
+//                else {
+//                    images = images01;
+//                }
+//                break;
+//            case 2:
+//                if (year == 0){
+//                    images = images02;
+//                }
+//                else if(year == 1){
+//                    images = images12;
+//                }
+//                else if(year == 2){
+//                    images = images22;
+//                }
+//                else {
+//                    images = images02;
+//                }
+//                break;
+//            case 3:
+//                if (year == 0){
+//                    images = images03;
+//                }
+//                else if(year == 1){
+//                    images = images13;
+//                }
+//                else if(year == 2){
+//                    images = images23;
+//                }
+//                else {
+//                    images = images03;
+//                }
+//                break;
+//            case 4:
+//                if (year == 0){
+//                    images = images04;
+//                }
+//                else if(year == 1){
+//                    images = images14;
+//                }
+//                else if(year == 2){
+//                    images = images24;
+//                }
+//                else {
+//                    images = images04;
+//                }
+//                break;
+//            default:
+//                images = images00;
+//                break;
+//        }
+//        return images;
+//    }
 
     public int getCount() {
         return images.length;

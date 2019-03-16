@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide;
 
 public class yearAdapter extends BaseAdapter {
     private Context mContext;
-    private Integer[] images = { R.drawable.s1, R.drawable.s2, R.drawable.s3};
+    private Integer[] images = { R.drawable.y16, R.drawable.y17, R.drawable.y18};
     private final String[] gridViewString = {"16-17", "17-18", "18-19", "19-20"};
 
     public yearAdapter(Context c) {
@@ -22,18 +22,14 @@ public class yearAdapter extends BaseAdapter {
         return images.length;
     }
 
-//    returns object from adapter
     public Object getItem(int position) {
         return null;
     }
 
-//    returns row number of image
     public long getItemId(int position) {
         return 0;
     }
 
-    // create a new ImageView for each item referenced by the Adapter
-//    convertView is the existing view for the image IF ANY
     public View getView(int position, View convertView, ViewGroup parent) {
         View gridView;
         LayoutInflater inflater = (LayoutInflater) mContext
@@ -52,7 +48,5 @@ public class yearAdapter extends BaseAdapter {
         }
         return gridView;
     }
-
-    // references to our images
 
 }
