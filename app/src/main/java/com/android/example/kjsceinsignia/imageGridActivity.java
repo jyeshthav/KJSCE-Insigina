@@ -39,54 +39,135 @@ public class imageGridActivity extends AppCompatActivity {
         uriList = new ArrayList<String>();
         final String path,eventPath;
         String temp;
-
-        switch(year){
-            case 0:
-                path = "16-17/";
-                break;
-            case 1:
-                path = "17-18/";
-                break;
-            case 2:
-                path = "18-19/";
-                break;
-            default:
-                path = "Logo/";
-                break;
-        }
+        int n;
 
         switch(event){
             case 0:
+                switch(year){
+                    case 0:
+                        path = "16-17/";
+                        n = 0;              // number of images for freshers 16
+                        break;
+                    case 1:
+                        path = "17-18/";
+                        n = 2;              // number of images for freshers 17
+                        break;
+                    case 2:
+                        path = "18-19/";
+                        n = 0;              // number of images for freshers 18
+                        break;
+                    default:
+                        path = "";
+                        n = 1;
+                        break;
+                }
                 temp = (16+year) + "fre";
                 eventPath = path.concat(temp);
                 break;
             case 1:
+                switch(year){
+                    case 0:
+                        path = "16-17/";
+                        n = 0;              // number of images for abhiyantriki 16
+                        break;
+                    case 1:
+                        path = "17-18/";
+                        n = 2;              // number of images for abhiyantriki 17
+                        break;
+                    case 2:
+                        path = "18-19/";
+                        n = 0;              // number of images for abhiyantriki 18
+                        break;
+                    default:
+                        path = "";
+                        n = 1;
+                        break;
+                }
                 temp = (16+year) + "abhi";
                 eventPath = path.concat(temp);
                 break;
             case 2:
+                switch(year){
+                    case 0:
+                        path = "16-17/";
+                        n = 0;              // number of images for skream 17
+                        break;
+                    case 1:
+                        path = "17-18/";
+                        n = 1;              // number of images for skream 18
+                        break;
+                    case 2:
+                        path = "18-19/";
+                        n = 0;              // number of images for skream 19
+                        break;
+                    default:
+                        path = "";
+                        n = 1;
+                        break;
+                }
                 temp = (17+year) + "skr";
                 eventPath = path.concat(temp);
                 break;
             case 3:
+                switch(year){
+                    case 0:
+                        path = "16-17/";
+                        n = 0;              // number of images for symphony 17
+                        break;
+                    case 1:
+                        path = "17-18/";
+                        n = 2;              // number of images for symphony 18
+                        break;
+                    case 2:
+                        path = "18-19/";
+                        n = 0;              // number of images for symphony 19
+                        break;
+                    default:
+                        path = "";
+                        n = 1;
+                        break;
+                }
                 temp = (17+year) + "sym";
                 eventPath = path.concat(temp);
                 break;
             case 4:
+                switch(year){
+                case 0:
+                    path = "16-17/";
+                    n = 0;              // number of images for other events 17
+                    break;
+                case 1:
+                    path = "17-18/";
+                    n = 2;              // number of images for other events 18
+                    break;
+                case 2:
+                    path = "18-19/";
+                    n = 0;              // number of images for other events 19
+                    break;
+                default:
+                    path = "";
+                    n = 1;
+                    break;
+            }
                 temp = (17+year) + "ot";
                 eventPath = path.concat(temp);
                 break;
             default:
-                eventPath = path.concat("logo1.jpg");
+                path = "Logo/";
+                n = 1;
+                eventPath = path.concat("logo");
                 break;
         }
 
         if(year == 0 || year == 1 || year == 2){
             String path1, path2;
-            path1 = eventPath.concat("1.jpg");
-            path2 = eventPath.concat("2.jpg");
-            uriList.add(path1);
-            uriList.add(path2);
+            for(int k = 0; k < n; k++){
+                int s = k + 1;
+                String st = Integer.toString(s);
+                path1 = eventPath.concat(st);
+                path2 = path1.concat(".jpg");
+                uriList.add(path2);
+            }
         }
         else{
             uriList.add(path);

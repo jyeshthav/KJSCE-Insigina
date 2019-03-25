@@ -1,10 +1,10 @@
 package com.android.example.kjsceinsignia;
 
-public class recyclerItems {
+public class timelineItems {
     private String item1;
     private String item2;
 
-    public recyclerItems(String item1) {
+    public timelineItems(String item1) {
         this.item1 = item1;
 //        this.item2 = item2;
     }

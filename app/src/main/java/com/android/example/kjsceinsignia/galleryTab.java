@@ -28,7 +28,6 @@ public class galleryTab extends Fragment {
             }
         });
         return view;
-//        return super.onCreateView(inflater, container, savedInstanceState);
     }
 }
 

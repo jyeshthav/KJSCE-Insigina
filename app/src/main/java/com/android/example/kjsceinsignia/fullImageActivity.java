@@ -42,12 +42,14 @@ public class fullImageActivity extends AppCompatActivity {
 
             final PhotoView photoView = (PhotoView) findViewById(R.id.imageView2);
 
+            //placeholder
+            Glide.with(getBaseContext()).load(R.drawable.placeholder).into(photoView);
+
             storageRef.child(imgPath).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
                     imgUri = uri;
                     Glide.with(getBaseContext()).load(imgUri).into(photoView);
-//                    Toast.makeText(mContext, "url fetch", Toast.LENGTH_SHORT).show();
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -56,9 +58,6 @@ public class fullImageActivity extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), exception.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
-
-//            ImageAdapter imageAdapter = new ImageAdapter(this, year, event);
-//            photoView.setImageResource(imageAdapter.setCard(year, event)[position]);
 
             RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar);
             ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {

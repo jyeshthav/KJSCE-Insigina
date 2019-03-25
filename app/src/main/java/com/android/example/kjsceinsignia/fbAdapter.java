@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -24,7 +25,6 @@ public class fbAdapter extends BaseAdapter {
 
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
-//    StorageReference imagesRef = storageRef.child("16-17");
 
     public fbAdapter(Context c, List<String> uriList) {
         this.mContext = c;
@@ -48,19 +48,25 @@ public class fbAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         final ImageView imageView;
-//        Toast.makeText(mContext, uriList.get(position), Toast.LENGTH_SHORT).show();
         if (convertView == null) {
+
             imageView = new ImageView(mContext);
             imageView.setLayoutParams(new ViewGroup.LayoutParams(-1, 370));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
 
+            //placeholder
+            Glide.with(mContext)
+                    .load(R.drawable.placeholder)
+                    .into(imageView);
+
             storageRef.child(uriList.get(position)).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
                     imgUri = uri;
-                    Glide.with(mContext).load(imgUri).into(imageView);
-//                    Toast.makeText(mContext, "url fetch", Toast.LENGTH_SHORT).show();
+                    Glide.with(mContext)
+                            .load(imgUri)
+                            .into(imageView);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -72,7 +78,6 @@ public class fbAdapter extends BaseAdapter {
         } else {
             imageView = (ImageView) convertView;
         }
-//        Glide.with(mContext).load(R.drawable.s1).into(imageView);
         return imageView;
     }
 }
