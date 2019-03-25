@@ -17,36 +17,14 @@ import com.google.firebase.storage.StorageReference;
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseStorage storage = FirebaseStorage.getInstance();
-    StorageReference storageRef = storage.getReference();
-    StorageReference imagesRef = storageRef.child("Logo");
-//    StorageReference logoRef = imagesRef.child("logo1.jpg");
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FirebaseApp.initializeApp(this);
 
         final ImageView imageView = (ImageView) findViewById(R.id.imageView);
 
-        imagesRef.child("logo1.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-//                String uriS = uri.toString();
-//                Uri uriU = Uri.parse(uriS);
-                Glide.with(getBaseContext())
-                        .load(uri)
-                        .into(imageView);
-//                Toast.makeText(getBaseContext(), uri.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle any errors
-                Toast.makeText(getBaseContext(), exception.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        imageView.setImageResource(R.drawable.logo);
     }
     // onClick button function
     public void openHome(View v){

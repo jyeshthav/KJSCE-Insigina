@@ -48,7 +48,7 @@ public class fbAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         final ImageView imageView;
-        Toast.makeText(mContext, uriList.get(position), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(mContext, uriList.get(position), Toast.LENGTH_SHORT).show();
         if (convertView == null) {
             imageView = new ImageView(mContext);
             imageView.setLayoutParams(new ViewGroup.LayoutParams(-1, 370));

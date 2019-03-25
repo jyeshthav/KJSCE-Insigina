@@ -17,30 +17,26 @@
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         card_view:cardBackgroundColor="@color/cardBack"
-        card_view:cardCornerRadius="10dp"
+        card_view:cardCornerRadius="2dp"
         android:onClick="openGallery">
 
         <ImageView
-                android:layout_margin="10dp"
                 android:id="@+id/image_view"
-                android:layout_marginLeft="5dp"
-                android:layout_marginStart="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="155dp"
-                android:scaleType="fitXY"
-                android:padding="10dp"
+                android:layout_height="160dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/logo"
                 android:contentDescription="@string/app_name"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="50dp"
+        android:layout_marginTop="160dp">
 
         <TextView
             android:id="@+id/info_text"
             android:text="@string/list_text"
-            android:gravity="bottom"
-            android:layout_margin="10dp"
+            android:gravity="center_vertical|center_horizontal"
             android:textSize="30sp"
             android:textColor="@color/black"
             android:layout_width="match_parent"
