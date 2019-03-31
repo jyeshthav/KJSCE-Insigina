@@ -1,12 +1,14 @@
 package com.android.example.kjsceinsignia;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.RatingBar;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
@@ -15,6 +17,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
 
 public class fullImageActivity extends AppCompatActivity {
 
@@ -30,11 +33,12 @@ public class fullImageActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         int position = intent.getIntExtra("position",0);
-        int year = intent.getIntExtra("year",0);
-        int event = intent.getIntExtra("event",0);
         int check = intent.getIntExtra("check",0);
         String eventPath = intent.getStringExtra("path");
-        int index = intent.getIntExtra("index",0);
+        final int index = intent.getIntExtra("index",0);
+
+        Button share = (Button) findViewById(R.id.share);
+        Button favorite = (Button) findViewById(R.id.favorite);
 
         if (check == 1) {
             String pos = Integer.toString(position+1);
@@ -59,27 +63,60 @@ public class fullImageActivity extends AppCompatActivity {
                 }
             });
 
-            RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar);
-            ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            share.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                    Toast.makeText(fullImageActivity.this, "" + ratingBar.getRating(),
-                            Toast.LENGTH_SHORT).show();
+                public void onClick(View v) {
+                    Intent share_intent = new Intent(Intent.ACTION_SEND);
+                    Toast.makeText(getBaseContext(), "Add to favorites for sharing!", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            favorite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getBaseContext(), "Added to favorites", Toast.LENGTH_SHORT).show();
                 }
             });
         }
         else{
-            exploreAdapter expAdapter = new exploreAdapter(this);
+            final exploreAdapter expAdapter = new exploreAdapter(this);
             PhotoView photoView = (PhotoView) findViewById(R.id.imageView2);
-//            photoView.setImageResource(expAdapter.explore_images[index]);
             Glide.with(getBaseContext()).load(expAdapter.explore_images[index]).into(photoView) ;
 
-            RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar);
-            ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            share.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                    Toast.makeText(fullImageActivity.this, "" + ratingBar.getRating(),
-                            Toast.LENGTH_SHORT).show();
+                public void onClick(View v) {
+                    int resource = expAdapter.explore_images[index];
+                    Bitmap bitmap= BitmapFactory.decodeResource(getResources(), resource);
+                    String path = getExternalCacheDir()+"/logo.png";
+                    java.io.OutputStream out = null;
+                    java.io.File file=new java.io.File(path);
+                    try {
+                        out = new java.io.FileOutputStream(file);
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+                        out.flush();
+                        out.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    path = file.getPath();
+                    Uri bmpUri = Uri.parse(path);
+
+                    Intent shareIntent = new Intent();
+                    shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+                    shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
+                    shareIntent.setType("image/jpg");
+                    startActivity(Intent.createChooser(shareIntent,"Share with"));
+//                    Toast.makeText(getBaseContext(), bmpUri.toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
+            favorite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getBaseContext(), "Already in favorites!", Toast.LENGTH_SHORT).show();
                 }
             });
         }

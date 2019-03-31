@@ -15,7 +15,5 @@ public class overviewTab extends Fragment {
 
         return view;
     }
-
-
 }
 

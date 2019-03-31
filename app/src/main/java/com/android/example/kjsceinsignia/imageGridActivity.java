@@ -182,8 +182,6 @@ public class imageGridActivity extends AppCompatActivity {
 //                        Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(imageGridActivity.this, fullImageActivity.class);
                 intent.putExtra("position", position);
-                intent.putExtra("year", year);
-                intent.putExtra("event", event);
                 intent.putExtra("check", 1);
                 intent.putExtra("path", eventPath);
                 startActivity(intent);

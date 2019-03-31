@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide;
 
 public class exploreAdapter extends BaseAdapter {
     private Context context;
-    public Integer[] explore_images = {R.drawable.fre1, R.drawable.abhi1, R.drawable.skr1,
+    public Integer[] explore_images = {R.drawable.y16, R.drawable.abhi1, R.drawable.skr1,
             R.drawable.sym1, R.drawable.ot1};
 
     public exploreAdapter(Context con){
