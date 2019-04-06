@@ -14,82 +14,86 @@
             android:textColor="@color/black"
             android:text="Contact us"
             android:layout_margin="10dp"/>
-    <TableRow
-            android:layout_margin="10dp">
+
+    <TableRow>
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:padding="10dp"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:text="@string/tab_text_1"
-                android:layout_column="1"/>
-        <TextView
+                android:text="Name:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:text="9999999999"
-                android:layout_column="2"/>
-    </TableRow>
-    <TableRow
-            android:layout_margin="10dp" android:layout_width="match_parent" android:layout_height="match_parent">
-        <TextView
+                android:layout_column="1" />
+        <EditText
+                android:id="@+id/edittext1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:textSize="20sp"
-                android:textColor="@color/black"
                 android:layout_column="1"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:text="email"
-                android:layout_column="2"/>
     </TableRow>
-    <TableRow
-            android:layout_margin="10dp">
+
+    <TableRow>
         <TextView
+                android:text="Contact:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:padding="10dp"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:text="@string/tab_text_1"
-                android:layout_column="1"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:textSize="20sp"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:text="9898998989"
-                android:layout_column="2"/>
-    </TableRow>
-    <TableRow
-            android:layout_margin="10dp">
-        <TextView
+                android:layout_column="1" />
+        <EditText
+                android:id="@+id/edittext2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:textSize="20sp"
-                android:textColor="@color/black"
                 android:layout_column="1"/>
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:text="email"
-                android:layout_column="2"/>
+
     </TableRow>
+
+    <TableRow >
+        <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_column="1"
+        android:layout_gravity="center_horizontal">
+            <Button
+                    android:id="@+id/add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add"
+                    android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+        <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_column="2"
+                android:layout_gravity="center_horizontal">
+            <Button
+                    android:id="@+id/edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit"
+                    android:layout_gravity="center_horizontal"/>
+            <Button
+                    android:id="@+id/delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delete"
+                    android:layout_gravity="center_horizontal"/>
+            <Button
+                    android:id="@+id/view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View"
+                    android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+
+    </TableRow>
+    <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lv_Contacts">
+
+    </ListView>
 
 </TableLayout>
