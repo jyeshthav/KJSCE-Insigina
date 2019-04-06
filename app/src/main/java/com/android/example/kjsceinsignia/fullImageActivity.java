@@ -18,6 +18,8 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.List;
+
 
 public class fullImageActivity extends AppCompatActivity {
 
@@ -40,12 +42,14 @@ public class fullImageActivity extends AppCompatActivity {
         Button share = (Button) findViewById(R.id.share);
         Button favorite = (Button) findViewById(R.id.favorite);
 
+        final ImageDB db = new ImageDB(this);
+
         if (check == 1) {
+
             String pos = Integer.toString(position+1);
-            String imgPath = eventPath.concat(pos + ".jpg");
+            final String imgPath = eventPath.concat(pos + ".jpg");
 
             final PhotoView photoView = (PhotoView) findViewById(R.id.imageView2);
-
             //placeholder
             Glide.with(getBaseContext()).load(R.drawable.placeholder).into(photoView);
 
@@ -74,20 +78,35 @@ public class fullImageActivity extends AppCompatActivity {
             favorite.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getBaseContext(), "Added to favorites", Toast.LENGTH_SHORT).show();
+                    final long ONE_MEGABYTE = 1024 * 1024;
+                    storageRef.child(imgPath).getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                        @Override
+                        public void onSuccess(byte[] bytes) {
+                            String name = imgPath;
+                            String bytestring = bytes.toString();
+                            db.addImage(new Image(bytes, name));
+                            Toast.makeText(getBaseContext(), "Added to favorites!", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            // Handle any errors
+                            Toast.makeText(getBaseContext(), "Image too big to save", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             });
         }
         else{
-            final exploreAdapter expAdapter = new exploreAdapter(this);
+            final List<Image> imageList = db.getAllImages();
             PhotoView photoView = (PhotoView) findViewById(R.id.imageView2);
-            Glide.with(getBaseContext()).load(expAdapter.explore_images[index]).into(photoView) ;
+            Glide.with(getBaseContext()).load(imageList.get(index).getBytes()).into(photoView) ;
 
             share.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int resource = expAdapter.explore_images[index];
-                    Bitmap bitmap= BitmapFactory.decodeResource(getResources(), resource);
+                    byte[] byteArray = imageList.get(index).getBytes();
+                    Bitmap bitmap= BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
                     String path = getExternalCacheDir()+"/logo.png";
                     java.io.OutputStream out = null;
                     java.io.File file=new java.io.File(path);
@@ -108,7 +127,6 @@ public class fullImageActivity extends AppCompatActivity {
                     shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
                     shareIntent.setType("image/jpg");
                     startActivity(Intent.createChooser(shareIntent,"Share with"));
-//                    Toast.makeText(getBaseContext(), bmpUri.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -116,7 +134,10 @@ public class fullImageActivity extends AppCompatActivity {
             favorite.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getBaseContext(), "Already in favorites!", Toast.LENGTH_SHORT).show();
+                    byte[] bytes = imageList.get(index).getBytes();
+                    String name = imageList.get(index).getName();
+                    db.deleteImage(new Image(bytes, name));
+                    Toast.makeText(getBaseContext(), "Removed from favorites!", Toast.LENGTH_SHORT).show();
                 }
             });
         }

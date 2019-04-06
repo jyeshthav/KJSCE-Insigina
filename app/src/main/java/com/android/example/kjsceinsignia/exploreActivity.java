@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import java.util.List;
+
 public class exploreActivity extends AppCompatActivity {
 
     @Override
@@ -14,8 +16,11 @@ public class exploreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explore);
 
+        final ImageDB db = new ImageDB(this);
+        List<Image> imageList = db.getAllImages();
+
         GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new exploreAdapter(this));
+        gridview.setAdapter(new exploreAdapter(this, R.layout.exp_image, imageList));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,

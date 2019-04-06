@@ -1,48 +1,50 @@
 package com.android.example.kjsceinsignia;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
-public class exploreAdapter extends BaseAdapter {
-    private Context context;
-    public Integer[] explore_images = {R.drawable.y16, R.drawable.abhi1, R.drawable.skr1,
-            R.drawable.sym1, R.drawable.ot1};
+import java.util.List;
 
-    public exploreAdapter(Context con){
-        this.context = con;
+public class exploreAdapter extends ArrayAdapter<Image> {
+    Context mContext;
+    int resource;
+    List<Image> imageList;
+
+    public exploreAdapter(Context context, int resource, List<Image> objects) {
+        super(context, resource, objects);
+
+        this.mContext = context;
+        this.resource = resource;
+        this.imageList = objects;
     }
+
     @Override
     public int getCount() {
-        return explore_images.length;
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
+        return imageList.size();
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
+
         if (convertView == null) {
-            imageView = new ImageView(context);
-            imageView.setLayoutParams(new ViewGroup.LayoutParams(-1, 820));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            imageView.setPadding(8, 8, 8, 8);
-        } else {
-            imageView = (ImageView) convertView;
+            LayoutInflater inflater = (LayoutInflater) mContext
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(resource, parent, false);
         }
 
-        Glide.with(context).load(explore_images[position]).into(imageView);
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.exp_image);
+        TextView name = (TextView) convertView.findViewById(R.id.exp_text);
+        Image imgItem = imageList.get(position);
+
+        Glide.with(mContext).load(imgItem.getBytes()).into(imageView);
         return imageView;
     }
+
 }

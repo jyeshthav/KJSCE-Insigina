@@ -2,14 +2,11 @@ package com.android.example.kjsceinsignia;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class contactActivity extends AppCompatActivity {
@@ -20,7 +17,7 @@ public class contactActivity extends AppCompatActivity {
         setContentView(R.layout.activity_contact);
 
 //        creates database
-        final DBHandler db = new DBHandler(this);
+        final ContactsDB db = new ContactsDB(this);
 
         Button add = (Button) findViewById(R.id.add);
         Button edit = (Button) findViewById(R.id.edit);
@@ -28,6 +25,9 @@ public class contactActivity extends AppCompatActivity {
         Button view = (Button) findViewById(R.id.view);
         final EditText etname = (EditText) findViewById(R.id.edittext1);
         final EditText etcon = (EditText) findViewById(R.id.edittext2);
+
+        db.addContact(new Contact("Dhairya", "9999911111"));
+        db.addContact(new Contact("Dharmil", "9911991199"));
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
