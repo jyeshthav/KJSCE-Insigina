@@ -29,6 +29,7 @@ public class ImageDB extends SQLiteOpenHelper {
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_NAME + " TEXT UNIQUE,"
                 + KEY_BYTES + " BLOB UNIQUE" + ")";
         db.execSQL(CREATE_IMAGE_TABLE);
+//        db.execSQL("DROP TABLE " + TABLE_IMAGES);
     }
 
     // Upgrading database

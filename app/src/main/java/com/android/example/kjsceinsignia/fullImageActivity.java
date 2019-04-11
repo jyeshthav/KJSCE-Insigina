@@ -41,6 +41,7 @@ public class fullImageActivity extends AppCompatActivity {
 
         Button share = (Button) findViewById(R.id.share);
         Button favorite = (Button) findViewById(R.id.favorite);
+        Button remove = (Button) findViewById(R.id.remove);
 
         final ImageDB db = new ImageDB(this);
 
@@ -67,18 +68,13 @@ public class fullImageActivity extends AppCompatActivity {
                 }
             });
 
-            share.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent share_intent = new Intent(Intent.ACTION_SEND);
-                    Toast.makeText(getBaseContext(), "Add to favorites for sharing!", Toast.LENGTH_SHORT).show();
-                }
-            });
+            share.setVisibility(View.GONE);
+            remove.setVisibility(View.GONE);
 
             favorite.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    final long ONE_MEGABYTE = 1024 * 1024;
+                    final long ONE_MEGABYTE = 2048 * 2048;
                     storageRef.child(imgPath).getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                         @Override
                         public void onSuccess(byte[] bytes) {
@@ -98,6 +94,8 @@ public class fullImageActivity extends AppCompatActivity {
             });
         }
         else{
+            favorite.setVisibility(View.GONE);
+
             final List<Image> imageList = db.getAllImages();
             PhotoView photoView = (PhotoView) findViewById(R.id.imageView2);
             Glide.with(getBaseContext()).load(imageList.get(index).getBytes()).into(photoView) ;
@@ -131,7 +129,7 @@ public class fullImageActivity extends AppCompatActivity {
             });
 
 
-            favorite.setOnClickListener(new View.OnClickListener() {
+            remove.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     byte[] bytes = imageList.get(index).getBytes();

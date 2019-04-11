@@ -7,8 +7,19 @@
         android:layout_height="match_parent"
         tools:context=".exploreActivity">
 
+        <TextView
+                android:id="@+id/fav_text"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="No favorites yet"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textAlignment="center"/>
+
         <GridView xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:id="@+id/gridview"
+                  android:id="@+id/exp_grid"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:columnWidth="230dp"

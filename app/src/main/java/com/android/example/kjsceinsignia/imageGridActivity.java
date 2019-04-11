@@ -5,6 +5,9 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.*;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -19,25 +22,28 @@ import java.util.List;
 
 public class imageGridActivity extends AppCompatActivity {
 
-//    FirebaseStorage storage = FirebaseStorage.getInstance();
-//    StorageReference storageRef = storage.getReference();
-//    StorageReference imagesRef = storageRef.child("16-17");
+    RecyclerView mRecyclerView;
+    RecyclerView.Adapter mAdapter;
+    List<String> uriList;
+    String eventPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_grid);
-//        FirebaseApp.initializeApp(this);
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.image_grid_rv);
 
         Intent i = getIntent();
         final int year = i.getIntExtra("index", 0);
         final int event = i.getIntExtra("event", 0);
 
-        GridView gridview = (GridView) findViewById(R.id.gridview);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
-        final List<String> uriList;
+
         uriList = new ArrayList<String>();
-        final String path,eventPath;
+        final String path;
         String temp;
         int n;
 
@@ -46,11 +52,11 @@ public class imageGridActivity extends AppCompatActivity {
                 switch(year){
                     case 0:
                         path = "16-17/";
-                        n = 0;              // number of images for freshers 16
+                        n = 6;              // number of images for freshers 16
                         break;
                     case 1:
                         path = "17-18/";
-                        n = 2;              // number of images for freshers 17
+                        n = 7;              // number of images for freshers 17
                         break;
                     case 2:
                         path = "18-19/";
@@ -68,11 +74,11 @@ public class imageGridActivity extends AppCompatActivity {
                 switch(year){
                     case 0:
                         path = "16-17/";
-                        n = 0;              // number of images for abhiyantriki 16
+                        n = 12;              // number of images for abhiyantriki 16
                         break;
                     case 1:
                         path = "17-18/";
-                        n = 2;              // number of images for abhiyantriki 17
+                        n = 11;              // number of images for abhiyantriki 17
                         break;
                     case 2:
                         path = "18-19/";
@@ -90,7 +96,7 @@ public class imageGridActivity extends AppCompatActivity {
                 switch(year){
                     case 0:
                         path = "16-17/";
-                        n = 0;              // number of images for skream 17
+                        n = 1;              // number of images for skream 17
                         break;
                     case 1:
                         path = "17-18/";
@@ -112,11 +118,11 @@ public class imageGridActivity extends AppCompatActivity {
                 switch(year){
                     case 0:
                         path = "16-17/";
-                        n = 0;              // number of images for symphony 17
+                        n = 8;              // number of images for symphony 17
                         break;
                     case 1:
                         path = "17-18/";
-                        n = 2;              // number of images for symphony 18
+                        n = 26;              // number of images for symphony 18
                         break;
                     case 2:
                         path = "18-19/";
@@ -134,11 +140,11 @@ public class imageGridActivity extends AppCompatActivity {
                 switch(year){
                 case 0:
                     path = "16-17/";
-                    n = 0;              // number of images for other events 17
+                    n = 9;              // number of images for other events 17
                     break;
                 case 1:
                     path = "17-18/";
-                    n = 2;              // number of images for other events 18
+                    n = 16;              // number of images for other events 18
                     break;
                 case 2:
                     path = "18-19/";
@@ -173,19 +179,16 @@ public class imageGridActivity extends AppCompatActivity {
             uriList.add(path);
         }
 
-        gridview.setAdapter(new fbAdapter(imageGridActivity.this, uriList));
-//        gridview.setAdapter(new ImageAdapter(imageGridActivity.this, year, event));
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-//                Toast.makeText(imageGridActivity.this, "" + position,
-//                        Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(imageGridActivity.this, fullImageActivity.class);
-                intent.putExtra("position", position);
-                intent.putExtra("check", 1);
-                intent.putExtra("path", eventPath);
-                startActivity(intent);
-            }
-        });
+        mAdapter = new ImageAdapter(this, uriList);
+        mRecyclerView.setAdapter(mAdapter);
+    }
+    public void openImage(View v){
+        Intent intent = new Intent(imageGridActivity.this, fullImageActivity.class);
+        TextView tv = v.findViewById(R.id.index);
+        int index = Integer.parseInt(tv.getText().toString());
+        intent.putExtra("position", index);
+        intent.putExtra("check", 1);
+        intent.putExtra("path", eventPath);
+        startActivity(intent);
     }
 }

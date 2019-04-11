@@ -31,16 +31,33 @@
                 style="@style/Widget.AppCompat.Button.Borderless"/>
 
         <Button
-                android:id="@+id/favorite"
+                android:id="@+id/remove"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Favorite"
+                android:text="Remove"
                 android:textAlignment="center"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 style="@style/Widget.AppCompat.Button.Borderless"/>
+
+        </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                    android:id="@+id/favorite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Favorite"
+                    android:textAlignment="center"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    style="@style/Widget.AppCompat.Button.Borderless"/>
 
         </LinearLayout>
 
