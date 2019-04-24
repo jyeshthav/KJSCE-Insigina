@@ -74,7 +74,7 @@ public class fullImageActivity extends AppCompatActivity {
             favorite.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    final long ONE_MEGABYTE = 2048 * 2048;
+                    final long ONE_MEGABYTE = 1024 * 2048;
                     storageRef.child(imgPath).getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                         @Override
                         public void onSuccess(byte[] bytes) {

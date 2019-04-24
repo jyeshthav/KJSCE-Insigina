@@ -60,7 +60,7 @@ public class imageGridActivity extends AppCompatActivity {
                         break;
                     case 2:
                         path = "18-19/";
-                        n = 0;              // number of images for freshers 18
+                        n = 3;              // number of images for freshers 18
                         break;
                     default:
                         path = "";
@@ -82,7 +82,7 @@ public class imageGridActivity extends AppCompatActivity {
                         break;
                     case 2:
                         path = "18-19/";
-                        n = 0;              // number of images for abhiyantriki 18
+                        n = 7;              // number of images for abhiyantriki 18
                         break;
                     default:
                         path = "";
@@ -104,7 +104,7 @@ public class imageGridActivity extends AppCompatActivity {
                         break;
                     case 2:
                         path = "18-19/";
-                        n = 0;              // number of images for skream 19
+                        n = 2;              // number of images for skream 19
                         break;
                     default:
                         path = "";
@@ -126,7 +126,7 @@ public class imageGridActivity extends AppCompatActivity {
                         break;
                     case 2:
                         path = "18-19/";
-                        n = 0;              // number of images for symphony 19
+                        n = 9;              // number of images for symphony 19
                         break;
                     default:
                         path = "";
@@ -148,7 +148,7 @@ public class imageGridActivity extends AppCompatActivity {
                     break;
                 case 2:
                     path = "18-19/";
-                    n = 0;              // number of images for other events 19
+                    n = 3;              // number of images for other events 19
                     break;
                 default:
                     path = "";
