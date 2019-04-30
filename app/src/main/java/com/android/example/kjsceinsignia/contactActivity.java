@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,36 +24,40 @@ public class contactActivity extends AppCompatActivity {
         final TextView head2_num = (TextView) findViewById(R.id.head2_num);
         final TextView head2_email = (TextView) findViewById(R.id.head2_email);
 
+        final ImageView call1 = (ImageView) findViewById(R.id.call1);
+        final ImageView call2 = (ImageView) findViewById(R.id.call2);
+        final ImageView mail1 = (ImageView) findViewById(R.id.mail1);
+        final ImageView mail2 = (ImageView) findViewById(R.id.mail2);
+
+
         head1.setText("Dhairya Singhvi");
         head2.setText("Dharmil Shah");
 
-        head1_num.setText("9821032503");
-        head2_num.setText("9821057305");
+        head1_num.setText("9757496271");
+        head2_num.setText("9930311291");
 
         head1_email.setText("dhairya.singhvi@somaiya.edu");
         head2_email.setText("dharmil.vs@somaiya.edu");
 
-        head1_num.setOnClickListener(new View.OnClickListener() {
+        call1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String number = head1_num.toString();
                 Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                callIntent.setData(Uri.parse("tel:"+number));
+                callIntent.setData(Uri.parse("tel:9757496271"));
                 startActivity(callIntent);
             }
         });
 
-        head2_num.setOnClickListener(new View.OnClickListener() {
+        call2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String number = head2_num.toString();
                 Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                callIntent.setData(Uri.parse("tel:"+number));
+                callIntent.setData(Uri.parse("tel:9930311291"));
                 startActivity(callIntent);
             }
         });
 
-        head1_email.setOnClickListener(new View.OnClickListener(){
+        mail1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0) {
                 String to= head1_email.getText().toString();
@@ -65,7 +70,7 @@ public class contactActivity extends AppCompatActivity {
 
         });
 
-        head2_email.setOnClickListener(new View.OnClickListener(){
+        mail2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0) {
                 String to= head2_email.getText().toString();

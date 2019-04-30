@@ -14,13 +14,11 @@
             android:textColor="@color/black"
             android:text="Contact us"
             android:layout_margin="10dp"/>
-    <TableRow
-            android:layout_margin="10dp">
+    <TableRow>
         <TextView
                 android:id="@+id/head1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:padding="10dp"
                 android:textSize="20sp"
                 android:textColor="@color/black"
@@ -33,26 +31,37 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:layout_column="2"/>
+        <ImageView
+                android:id="@+id/call1"
+                android:src="@drawable/call"
+                android:layout_width="50dp"
+                android:padding="10dp"
+                android:layout_height="match_parent"
+                android:layout_column="3"/>
     </TableRow>
-    <TableRow
-            android:layout_margin="10dp">
+    <TableRow>
         <TextView
                 android:id="@+id/head1_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:textSize="20sp"
+                android:padding="10dp"
                 android:textColor="@color/black"
                 android:layout_span="2"
                 android:layout_column="1"/>
+        <ImageView
+                android:id="@+id/mail1"
+                android:src="@drawable/mail"
+                android:layout_width="50dp"
+                android:padding="10dp"
+                android:layout_height="match_parent"
+                android:layout_column="3"/>
     </TableRow>
-    <TableRow
-            android:layout_margin="10dp">
+    <TableRow>
         <TextView
                 android:id="@+id/head2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:padding="10dp"
                 android:textSize="20sp"
                 android:textColor="@color/black"
@@ -61,23 +70,35 @@
                 android:id="@+id/head2_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:textSize="20sp"
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:layout_column="2"/>
+        <ImageView
+                android:id="@+id/call2"
+                android:src="@drawable/call"
+                android:layout_width="50dp"
+                android:padding="10dp"
+                android:layout_height="match_parent"
+                android:layout_column="3"/>
     </TableRow>
-    <TableRow
-            android:layout_margin="10dp">
+    <TableRow>
         <TextView
                 android:id="@+id/head2_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:textSize="20sp"
+                android:padding="10dp"
                 android:textColor="@color/black"
                 android:layout_span="2"
                 android:layout_column="1"/>
+        <ImageView
+                android:id="@+id/mail2"
+                android:src="@drawable/mail"
+                android:layout_width="50dp"
+                android:padding="10dp"
+                android:layout_height="match_parent"
+                android:layout_column="3"/>
     </TableRow>
 
 </TableLayout>
